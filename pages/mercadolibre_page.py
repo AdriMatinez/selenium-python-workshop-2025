@@ -12,3 +12,5 @@ class SearchPage():
     def search_product(self, product_name):
         self.driver.find_element(*self.PRODUCT_NAME).send_keys(product_name)
         self.driver.find_element(*self.SEARCH_BUTTON).click()
+        
+    

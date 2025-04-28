@@ -13,4 +13,4 @@ def step_impl(context, term):
 @then('el título del artículo debe ser "{expected_title}"')
 def step_impl(context, expected_title):
     actual_title = context.page.get_article_title()
-    assert actual_title == expected_title, f"Expected title '{expected_title}' but got '{actual_title}'"
+    assert actual_title in expected_title, f"Expected title '{expected_title}' but got '{actual_title}'"

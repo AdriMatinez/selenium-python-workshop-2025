@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 class WikipediaPage:
     def __init__(self, driver):
@@ -11,8 +12,10 @@ class WikipediaPage:
         self.driver.get("https://es.wikipedia.org")
 
     def search(self, term):
-        self.driver.find_element(*self.search_input).send_keys(term)
-        self.driver.find_element(*self.search_button).click()
+        search_box = self.driver.find_element(*self.search_input)
+        search_box.send_keys(term)
+        search_box.send_keys(Keys.RETURN)  # Presionar Enter
+
 
     def get_article_title(self):
         return self.driver.find_element(*self.article_title).text
